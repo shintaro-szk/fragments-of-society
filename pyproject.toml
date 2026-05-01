@@ -1,0 +1,70 @@
+# ==============================================================================
+# build system
+# ==============================================================================
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+# ==============================================================================
+# project metadata
+# ==============================================================================
+[project]
+name = "Fragment of Society"
+version = "0.1.0"
+description = "2D top-down dungeon game about social issues. Fight bosses, collect puzzle fragments, unlock characters, and complete levels to reveal a larger message."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [
+  { name = "__AUTHOR__" }
+]
+
+dependencies = [
+  "pygame"
+]
+
+
+# ==============================================================================
+# project urls
+# ==============================================================================
+[project.urls]
+Repository = "https://github.com/aaronmfs/fragment-of-society.git"
+Issues = "https://github.com/aaronmfs/fragment-of-society/issues"
+
+
+# ==============================================================================
+# cli entry points
+# ==============================================================================
+[project.scripts]
+fragmented = "fragment_of_society.main:main"
+
+
+# ==============================================================================
+# setuptools configuration
+# ==============================================================================
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+
+# ==============================================================================
+# pytest
+# ==============================================================================
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+
+
+# ==============================================================================
+# ruff
+# ==============================================================================
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
